@@ -1,9 +1,10 @@
-package cl.telematica.android.certamen3;
+package cl.telematica.android.certamen3.Models;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,21 +15,23 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import cl.telematica.android.certamen3.Feed;
+import cl.telematica.android.certamen3.Interfaces.ListaPresenter;
+import cl.telematica.android.certamen3.Interfaces.ListaView;
+import cl.telematica.android.certamen3.MyAsyncTaskExecutor;
+import cl.telematica.android.certamen3.Presenters.ListaPresenterImpl;
+import cl.telematica.android.certamen3.R;
+/**
+ * Created by Luchiin on 18-11-2016.
+ */
+
+public class ListaModelImpl {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void createMyRecyclerView(ListaView view) {
 
-        createMyRecyclerView();
-        MyAsyncTaskExecutor.getInstance().executeMyAsynctask(this, mRecyclerView);
-    }
-
-    public void createMyRecyclerView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
 
@@ -65,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
             return feeds;
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -86,8 +80,9 @@ public class MainActivity extends AppCompatActivity {
              */
             return true;
         }
-
-        return super.onOptionsItemSelected(item);
+        return onOptionsItemSelected(item);
     }
 
+    public void createMyRecView(ListaView view) {
+    }
 }

@@ -3,6 +3,8 @@ package cl.telematica.android.certamen3;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 
+import cl.telematica.android.certamen3.Views.Lista;
+
 /**
  * Created by franciscocabezas on 11/18/16.
  */
@@ -20,7 +22,7 @@ public class MyAsyncTaskExecutor {
         return instance;
     }
 
-    public void executeMyAsynctask(final MainActivity activity, final RecyclerView mRecyclerView) {
+    public void executeMyAsynctask(final Lista activity, final RecyclerView mRecyclerView) {
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 
             @Override
